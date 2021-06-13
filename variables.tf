@@ -3,7 +3,7 @@ variable "name" {
 }
 
 variable "project" {
-  default = "optimum-spring-238818"
+  default = "bcm-pcidss-devops-jenkins"
 }
 
 variable "location" {
