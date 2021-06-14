@@ -12,12 +12,12 @@ provider "kubernetes" {
 module "gke" {
   source                     = "terraform-google-modules/kubernetes-engine/google"
   project_id                 = "bcm-pcidss-devops-jenkins"
-  network_project_id         = "dbank-anthospoc"
-  name                       = "gke-anthos-chinonso"
+  network_project_id         = "example-vpc-dev"
+  name                       = "gke-anthos-sur"
   region                     = "us-central1"
   zones                      = ["us-central1-a", "us-central1-b", "us-central1-f"]
-  network                    = "dbank-private"
-  subnetwork                 = "tf-test-subnetwork"
+  network                    = "example-vpc-dev"
+  subnetwork                 = "example-vpc-dev-us-central1"
   ip_range_pods              = "ip-range-pods-name"
   ip_range_services          = "ip-range-services-name"
   http_load_balancing        = false
@@ -37,7 +37,7 @@ module "gke" {
       image_type         = "COS"
       auto_repair        = true
       auto_upgrade       = true
-      service_account    = "terraform@anthos-migrations.iam.gserviceaccount.com"
+      service_account    = "stanalone-jenkins-serviceaccou@bcm-pcidss-devops-jenkins.iam.gserviceaccount.com"
       preemptible        = false
       initial_node_count = 4
     },
