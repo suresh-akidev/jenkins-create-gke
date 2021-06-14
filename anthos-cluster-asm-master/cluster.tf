@@ -15,8 +15,9 @@ module "gke" {
   region                     = "us-central1"
   zones                      = ["us-central1-a", "us-central1-b", "us-central1-f"]
   network                    = "default"
-  ip_range_pods              = "ip-range-pods-name"
-  ip_range_services          = "ip-range-services-name"
+  subnetwork	             = "default"
+  ip_range_pods              = ""
+  ip_range_services          = "e"
   http_load_balancing        = false
   horizontal_pod_autoscaling = true
   network_policy             = true
@@ -29,7 +30,7 @@ module "gke" {
       min_count          = 1
       max_count          = 3
       local_ssd_count    = 0
-      disk_size_gb       = 50
+      disk_size_gb       = 20
       disk_type          = "pd-standard"
       image_type         = "COS"
       auto_repair        = true
