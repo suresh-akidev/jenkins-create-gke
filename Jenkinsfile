@@ -4,6 +4,11 @@ pipeline{
 		terraform 'terraform-14'
 	}
 	stages{
+		stage('Terraform version'){
+			steps{
+				sh label: '', script: 'terraform --version'
+			}
+		}
 		stage('Terraform Init'){
 			steps{
 				sh label: '', script: 'terraform init'
